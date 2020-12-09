@@ -5,6 +5,7 @@ var image = ee.Image(ee.ImageCollection('LANDSAT/LC08/C01/T1_SR')
     .sort('CLOUD_COVER')
     .first());
 Map.addLayer(image, {bands: ['B4', 'B3', 'B2'],min:0, max: 3000}, 'True colour image');
+
 //merge
 var newfc = urban.merge(vegetation);
 print(newfc);
@@ -16,12 +17,14 @@ var training = image.select(bands).sampleRegions({
   scale: 30
 });
 print(training);
+
 //train classifier
 var classifier = ee.Classifier.cart().train({
   features: training,
   classProperty: 'landcover',
   inputProperties: bands
 });
+
 //Run the classification
 var classified = image.select(bands).classify(classifier);
 //Display classification
