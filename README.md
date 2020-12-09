@@ -1,1 +1,1 @@
-# Remote-Sensing-Image-Classification
+# Remote-Sensing-Image-Classification(Supervised)
