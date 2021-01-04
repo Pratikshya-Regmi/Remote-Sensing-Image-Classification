@@ -22,7 +22,7 @@ var classifier = ee.Classifier.cart().train({
   classProperty: 'landcover',
   inputProperties: bands
 });
-////Run the classification
+//Run the classification
 var classified = image.select(bands).classify(classifier);
 //Display classification
 Map.centerObject(newfc, 11);
