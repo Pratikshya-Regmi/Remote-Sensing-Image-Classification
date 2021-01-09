@@ -16,7 +16,7 @@ var training = image.select(bands).sampleRegions({
   scale: 30
 });
 print(training);
-//train classifier
+///train classifier
 var classifier = ee.Classifier.cart().train({
   features: training,
   classProperty: 'landcover',
