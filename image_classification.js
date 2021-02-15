@@ -8,7 +8,7 @@ Map.addLayer(image, {bands: ['B4', 'B3', 'B2'],min:0, max: 3000}, 'True colour i
 ////merge
 var newfc = urban.merge(vegetation);
 print(newfc);
-//create training data
+// create training data
 var bands = ['B2', 'B3', 'B4', 'B5', 'B6', 'B7'];
 var training = image.select(bands).sampleRegions({
   collection: newfc,
@@ -16,13 +16,13 @@ var training = image.select(bands).sampleRegions({
   scale: 30
 });
 print(training);
-///train classifier
+/// train classifier
 var classifier = ee.Classifier.cart().train({
   features: training,
   classProperty: 'landcover',
   inputProperties: bands
 });
-//Run the classification
+// Run the classification
 var classified = image.select(bands).classify(classifier);
 //Display classification
 Map.centerObject(newfc, 11);
