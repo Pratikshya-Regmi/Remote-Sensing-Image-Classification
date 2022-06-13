@@ -1,2 +1,2 @@
-# Maximum-likelihood-Image-Classification in Google Earth Engine (Supervised)
+# Maximum-likelihood-Image-Classification in Google Earth Engine(Supervised)
  
